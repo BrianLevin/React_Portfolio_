@@ -19,7 +19,11 @@ export default function Topnav() {
                     </div>           </div>
 
                 <div className="right">
+<div className="hamburger">
+    <span className="line1"></span>
+    <span className="line2"></span>
 
+</div><span className="line3"></span>
                 </div>
 
             </div>
