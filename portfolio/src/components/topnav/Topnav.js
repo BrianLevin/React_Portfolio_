@@ -1,6 +1,6 @@
 import "./topnav.scss"
 
-export default function Topvav() {
+export default function Topnav() {
     return (
         <div className="topnav">
 
