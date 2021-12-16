@@ -1,8 +1,8 @@
 import "./topnav.scss"
 import { Person, Mail } from "@material-ui/icons"
-export default function Topnav() {
+export default function Topnav({setMenueOpen, menueOpen} ) {
     return (
-        <div className="topnav">
+        <div className={"topnav " + (menueOpen  && "active")}>
             < div className="wrapper">
                 <div className="left">
                     <a href="#intro" className="logo">genius.</a>
@@ -16,14 +16,15 @@ export default function Topnav() {
                         <Mail className="icon" />
                         <span>Brian@gmail.com</span>
 
-                    </div>           </div>
+                    </div>           
+                    </div>
 
                 <div className="right">
-<div className="hamburger">
+<div className="hamburger" onClick = {() => setMenueOpen(!menueOpen)}>
     <span className="line1"></span>
     <span className="line2"></span>
-
-</div><span className="line3"></span>
+    <span className="line3"></span>
+</div>
                 </div>
 
             </div>
