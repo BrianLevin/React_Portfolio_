@@ -1,5 +1,6 @@
-import "./topnav.scss"
-import { Person, Mail } from "@material-ui/icons"
+import "./topnav.scss";
+import { Person, Mail } from "@material-ui/icons";
+
 export default function Topnav({setMenuOpen, menuOpen} ) {
     return (
         <div className={"topnav " + (menuOpen  && "active")}>
