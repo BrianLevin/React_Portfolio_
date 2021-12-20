@@ -1,9 +1,17 @@
 import "./portfolio.scss";
-import PortfolioList from '../portfolioList/PortfolioList';
-import React, {useState} from 'react';
+import PortfolioList from "../portfolioList/PortfolioList";
+import React, { useEffect, useState } from "react";
+import {
+  featuredPortfolio,
+  webPortfolio,
+  mobilePortfolio,
+  designPortfolio,
+  contentPortfolio,
+} from "../../data";
 
 export default function Portfolio() {
-    const[selected,setSelected] = useState("featured");
+  const [selected, setSelected] = useState("featured");
+  const [data, setData] = useState([]);
   const list = [
     {
       id: "featured",
@@ -28,55 +36,55 @@ export default function Portfolio() {
     },
   ];
 
+  useEffect(() => {
+    switch (selected) {
+      case "featured":
+        setData(featuredPortfolio);
+        break;
+
+      case "web":
+        setData(webPortfolio);
+        break;
+
+      case "mobile":
+        setData(mobilePortfolio);
+        break;
+
+      case "design":
+        setData(designPortfolio);
+        break;
+
+      case "content":
+        setData(contentPortfolio);
+        break;
+      default:
+        setData(featuredPortfolio);
+    }
+  }, [selected]);
+
   return (
     <div className="portfolio" id="portfolio">
       <h1>Portfolio</h1>
       <ul>
         {list.map((item) => (
-          <PortfolioList title = {item.title}  
-          active={selected === item.id}  
-          setSelected={setSelected}
-          id={item.id}
+          <PortfolioList
+            title={item.title}
+            active={selected === item.id}
+            setSelected={setSelected}
+            id={item.id}
           />
         ))}
       </ul>
       <div class="container">
+        {data.map((d) =>( 
         <div class="item">
           <img
-            src="https://www.techfunnel.com/wp-content/uploads/2019/07/12-Digital-Banking-Challenges-and-Opportunities-For-the-Banking-Industry-1.png"
+            src={d.img}
             alt=""
           />
-          <h3> Banking App</h3>
+          <h3> {d.title}</h3>
         </div>
-        <div class="item">
-          <img
-            src="https://www.techfunnel.com/wp-content/uploads/2019/07/12-Digital-Banking-Challenges-and-Opportunities-For-the-Banking-Industry-1.png"
-            alt=""
-          />
-          <h3> Banking App</h3>
-        </div>
-
-        <div class="item">
-          <img
-            src="https://www.techfunnel.com/wp-content/uploads/2019/07/12-Digital-Banking-Challenges-and-Opportunities-For-the-Banking-Industry-1.png"
-            alt=""
-          />
-          <h3> Banking App</h3>
-        </div>
-        <div class="item">
-          <img
-            src="https://www.techfunnel.com/wp-content/uploads/2019/07/12-Digital-Banking-Challenges-and-Opportunities-For-the-Banking-Industry-1.png"
-            alt=""
-          />
-          <h3> Banking App</h3>
-        </div>
-        <div class="item">
-          <img
-            src="https://www.techfunnel.com/wp-content/uploads/2019/07/12-Digital-Banking-Challenges-and-Opportunities-For-the-Banking-Industry-1.png"
-            alt=""
-          />
-          <h3> Banking App</h3>
-        </div>
+        ))}
       </div>
     </div>
   );
