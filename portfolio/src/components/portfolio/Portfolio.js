@@ -1,6 +1,6 @@
-import "./portfolio.scss";
+import { useEffect, useState } from "react";
 import PortfolioList from "../portfolioList/PortfolioList";
-import React, { useEffect, useState } from "react";
+import "./portfolio.scss";
 import {
   featuredPortfolio,
   webPortfolio,
@@ -25,7 +25,6 @@ export default function Portfolio() {
       id: "mobile",
       title: "Mobile App",
     },
-
     {
       id: "design",
       title: "Design",
@@ -41,19 +40,15 @@ export default function Portfolio() {
       case "featured":
         setData(featuredPortfolio);
         break;
-
       case "web":
         setData(webPortfolio);
         break;
-
       case "mobile":
         setData(mobilePortfolio);
         break;
-
       case "design":
         setData(designPortfolio);
         break;
-
       case "content":
         setData(contentPortfolio);
         break;
@@ -75,15 +70,15 @@ export default function Portfolio() {
           />
         ))}
       </ul>
-      <div class="container">
-        {data.map((d) =>( 
-        <div class="item">
-          <img
-            src={d.img}
-            alt=""
-          />
-          <h3> {d.title}</h3>
-        </div>
+      <div className="container">
+        {data.map((d) => (
+          <div className="item">
+            <img
+              src={d.img}
+              alt=""
+            />
+            <h3>{d.title}</h3>
+          </div>
         ))}
       </div>
     </div>
