@@ -50,6 +50,7 @@
         width: 300px;
         height: 200px;
         font-size: 14px;
+       
 
         @include mobile {
           width: 200px;
@@ -69,6 +70,10 @@
 
         &:focus {
           outline: none;
+        }
+        &:hover{
+          background-color: rgb(245, 3, 3);
+          transition: 200ms;
         }
       }
 
